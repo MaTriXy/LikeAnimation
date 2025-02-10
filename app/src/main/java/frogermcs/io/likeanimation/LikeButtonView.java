@@ -155,7 +155,17 @@ public class LikeButtonView extends FrameLayout implements View.OnClickListener 
                     setPressed(false);
                 }
                 break;
+                
+            case MotionEvent.ACTION_CANCEL:
+                ivStar.animate().scaleX(1).scaleY(1).setInterpolator(DECCELERATE_INTERPOLATOR);
+                setPressed(false);
+                break;
+
         }
         return true;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
     }
 }
